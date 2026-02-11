@@ -17,13 +17,10 @@ The system runs inside a Docker container and provides GPU-accelerated grasp syn
 
 ## 2. REQUIREMENTS
 
-### Host system:
-
-- Ubuntu 20.04
 - NVIDIA GPU
 - NVIDIA drivers installed
-- Docker
 - NVIDIA Container Toolkit
+- Docker
 
 
 ## 3. INSTALLATION
