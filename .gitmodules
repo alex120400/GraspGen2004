@@ -1,0 +1,3 @@
+[submodule "catkin_ws/src/robokudo_msgs"]
+	path = catkin_ws/src/robokudo_msgs
+	url = https://gitlab.informatik.uni-bremen.de/robokudo/robokudo_msgs.git
