@@ -44,14 +44,13 @@ git submodule update --init --recursive
 Build the full environment:
 
 ```shell
-./build.sh
+./docker/build.sh
 ```
 
 This builds:
 
 - PyTorch + CUDA environment
 - GraspGen dependencies
-- Manifold
 - ROS Noetic (ros-base)
 - Python dependencies
 
@@ -60,17 +59,17 @@ Build time may take 20–40 minutes.
 
 ## 4. BUILDING ROS WORKSPACE
 
-After starting the container (see below):
+After starting the container (see "Running the System - Terminal 1 — Start Docker Container" below):
 
 ```shell
-cd /GraspGen2004/catkin_ws
+cd catkin_ws
 catkin build
 ```
 ```shell
 source devel/setup.bash
 ```
 
-This step only needs to be done once unless ROS packages change.
+This step only needs to be done once unless ROS packages change. Sourcing is not required again if the container ist re-started.
 
 ## 5. RUNNING THE SYSTEM
 
@@ -114,7 +113,7 @@ This starts the visualization server.
 
 ### RUNNING THE ROS NODE
 
-The roscore is assumed to be run by the robot/external outer node. 
+The roscore is assumed to be already running and is managed by the robot/external outer node. The Terminal 2 and the meshcat-server must be run first.
 Inside the container (Terminal 1):
 
 ```shell
@@ -128,11 +127,11 @@ MeshCat runs automatically once the server is started. A link to show the visual
 
 ## 6. CONFIGURATIONS TO MAKE IN GRASPING PIPELINE
 
-(To be filled)
+### Configuration adaption
+In the Grasping Pipelines config.yaml the _grasppoint_estimator_topic_ needs to be set to  `/pose_estimator/find_grasppose_graspgen`.
 
-- Parameter configuration
-- Model paths
-- ROS topic configuration
-- Pipeline integration settings
+### Direct pose estimation
+In grasp_method_selector.py, there might be adaptions neccassary to get `'direct_grasp'` returned as only then the GraspGen-wrapper is called.
+
 
 

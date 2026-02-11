@@ -16,7 +16,7 @@ VOLUME_MOUNTS="-v ${BASE_DIR}:/GraspGen2004"
 
 # Add optional mounts
 [ -d "$MODELS_DIR" ] && VOLUME_MOUNTS="$VOLUME_MOUNTS -v ${MODELS_DIR}:/GraspGen2004/code/GraspGenModels"
-[ -d "$SCENES_DIR" ] && VOLUME_MOUNTS="$VOLUME_MOUNTS -v ${SCENES_DIR}:/GraspGen2004/code/scenes"
+# [ -d "$SCENES_DIR" ] && VOLUME_MOUNTS="$VOLUME_MOUNTS -v ${SCENES_DIR}:/GraspGen2004/code/scenes"
 [ -d "$CATKIN_WS" ] && VOLUME_MOUNTS="$VOLUME_MOUNTS -v ${CATKIN_WS}:/GraspGen2004/catkin_ws"
 
 echo "Starting Docker container with:"
