@@ -1,0 +1,1 @@
+docker build -f docker/graspgen_cuda121.dockerfile -t graspgen:cuda121 .
